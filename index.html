@@ -1,0 +1,2567 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <script>
+            if (localStorage.getItem("debug") === "active") {
+                document.write('<script src="http:\/\/localhost:8097"><\/script>')
+            }
+        </script>
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+
+        <script src="build/react.development.js"></script>
+        <script src="build/react-dom.development.js"></script>
+        <script src="build/framer.js"></script>
+
+        <link href="build/Draft.css" rel="stylesheet" />
+        <link href="build/style.css" rel="stylesheet" />
+
+        <!-- Workaround for a WebKit bug: loading via URL from the stylesheet is denied if this file is loaded via file:/// -->
+        <style>
+            @font-face {
+                font-family: "Roboto Mono";
+                font-style: normal;
+                font-weight: 400;
+                src: local("Roboto Mono"), local("RobotoMono-Regular"),
+                    url("fonts/RobotoMono-Regular.ttf") format("truetype");
+            }
+            @font-face {
+                font-family: "Input Mono";
+                font-style: normal;
+                font-weight: 400;
+                src: local("Input Mono"), url("fonts/QbHJVUjy6YgY.app.ttf") format("truetype");
+            }
+
+            .framerInternalUI-componentPlaceholder {
+                color: rgb(136, 85, 255);
+                background-color: rgba(163, 113, 255);
+                border-color: rgba(175, 125, 255);
+            }
+
+            .framerInternalUI-errorPlaceholder {
+                color: rgb(255, 0, 85);
+                background-color: rgb(242, 219, 224);
+                border-color: rgb(246, 193, 204);
+                border-style: solid;
+            }
+        </style>
+        <style>
+            * {
+                -webkit-font-smoothing: antialiased;
+            }
+        </style>
+    </head>
+
+    <body>
+        <main></main>
+        <script src="build/standalone.js"></script>
+        
+        <script id="build_index_js">
+        (function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("framer"));
+	else if(typeof define === 'function' && define.amd)
+		define(["framer"], factory);
+	else {
+		var a = typeof exports === 'object' ? factory(require("framer")) : factory(root["Framer"]);
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
+})(window, function(__WEBPACK_EXTERNAL_MODULE_framer__) {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		try { modules[moduleId].call(module.exports, module, module.exports, __webpack_require__); } catch (error) { module.exports = { error } }
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// asset url
+/******/ 	var __module_i = eval("typeof module !== 'undefined' ? module.i : ''");
+/******/ 	var __framer_package = (/(node_modules[/].*)[/](build|dist).index.js/.exec(__module_i) || [])[1]
+/******/ 	function __asset_url__(src) { return __WEBPACK_EXTERNAL_MODULE_framer__.serverURL(__framer_package, src) };
+/******/ 	installedModules['framer/resource'] = { i: 'framer/resource', l: true, exports: { url: __asset_url__ } };
+/******/
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./package.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./code sync recursive \\.(t|j)s(x?)|\\.css$":
+/*!***************************************!*\
+  !*** ./code sync \.(t|j)s(x?)|\.css$ ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./canvas.tsx": "./code/canvas.tsx"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./code sync recursive \\.(t|j)s(x?)|\\.css$";
+
+/***/ }),
+
+/***/ "./code/canvas.tsx":
+/*!*************************!*\
+  !*** ./code/canvas.tsx ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+// WARNING: this file is auto generated, any changes will be lost
+const framer_1 = __webpack_require__(/*! framer */ "framer");
+const canvas = framer_1.CanvasStore.shared({"children":[]});
+
+
+/***/ }),
+
+/***/ "./package.js":
+/*!********************!*\
+  !*** ./package.js ***!
+  \********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// The template for the dynamic webpack entry. Be aware of the variables
+
+const packageJson = __webpack_require__(/*! ./package.json */ "./package.json")
+
+const package = {
+    packageJson,
+    sourceModules: {},
+    dependencies: {},
+}
+
+// This is a special webpack thing that watches the whole directory
+// https://github.com/webpack/docs/wiki/context
+const ctx = __webpack_require__("./code sync recursive \\.(t|j)s(x?)|\\.css$")
+
+ctx.keys().forEach(key => {
+    package.sourceModules[key] = () => ctx(key)
+})
+
+// The packages are passed in through a template
+const packages = {}
+
+                packages["framer"] = () => {
+                    var package = {}
+                    var designJson
+                    try {
+                        package = __webpack_require__(/*! framer */ "framer")
+                        
+                    } catch (e) {
+                        console.log(e)
+                    }
+                    package.__framer__ = package.__framer__ || {}
+                    package.__framer__.packageJson = {"name":"framer","version":"1.1.3","main":"build/framer.js","author":"Framer","license":"MIT","scripts":{"coverage":"jest --coverage","test":"jest","watch":"jest --watch"},"devDependencies":{"@emotion/is-prop-valid":"^0.8.2","@microsoft/api-extractor":"^7.3.4","@testing-library/react":"^8.0.1","@types/chalk":"^2.2.0","@types/draft-js":"0.10.19","@types/enzyme":"^3.1.10","@types/enzyme-adapter-react-16":"^1.0.3","@types/google.fonts":"^1.0.2","@types/hsluv":"https://github.com/framer/typed_hsluv#bump","@types/jest":"^23.0.0","@types/jest-diff":"^20.0.0","@types/jest-matcher-utils":"^21.0.1","@types/node":"^10.12.9","@types/promise-queue":"^2.2.0","@types/react":"16.8.4","@types/react-dom":"^16.8","@types/webfontloader":"^1.6.29","cache-loader":"^1.2.2","chalk":"^2.4.1","convert-tsconfig-paths-to-webpack-aliases":"^0.9.2","css.escape":"^1.5.1","draft-js":"0.10.4","enzyme":"^3.9.0","enzyme-adapter-react-16":"^1.9.1","eventemitter3":"^3.1.0","fork-ts-checker-webpack-plugin":"^0.4.1","framer-motion":"^1.6.7","hoist-non-react-statics":"^2.5.0","hsluv":"^0.0.3","immutable":"^3.8.2","jest":"^23.1.0","jest-diff":"^23.6.0","jest-dom":"^3.1.3","jest-junit":"^5.2.0","modclean":"^3.0.0-beta.1","progress-bar-webpack-plugin":"^1.11.0","promise-queue":"^2.2.5","raf":"^3.4.0","react":"^16.8","react-dev-utils":"^5.0.1","react-dom":"^16.8","react-hooks-testing-library":"^0.5.1","react-testing-library":"^6.0.0","resize-observer-polyfill":"^1.5.1","semver":"^5.6.0","style-value-types":"^3.1.4","ts-jest":"^23.10.5","ts-loader":"^4.1.0","tslint":"^5.12.1","tslint-react-hooks":"^1.1.0","typescript":"^3.5.3","watch":"^1.0.2","webfontloader":"^1.6.28","webpack":"^4.4.1","webpack-cli":"^3.1.2","webpack-dev-server":"^3.1.10","xcssmatrix":"^0.2.2"},"peerDependencies":{"react":"^16.8.2","react-dom":"^16.8.2"},"tsdoc":{"tsdocFlavor":"AEDoc"},"framer":{"components":[{"name":"Scroll","children":true,"properties":[{"key":"direction","title":"Direction","kind":"enum","options":["horizontal","vertical","both"]}]},{"name":"Page"},{"name":"Stack"},{"name":"useOpenURL","type":"action"},{"name":"useLog","type":"action"},{"name":"FramerAppleWatch38","type":"device"},{"name":"FramerAppleWatch42","type":"device"},{"name":"FramerSonySmartWatch","type":"device"},{"name":"FramerAppleIPhoneSE","type":"device"},{"name":"FramerAppleIPhone8","type":"device"},{"name":"FramerAppleIPhone8Plus","type":"device"},{"name":"FramerAppleIPhoneXS","type":"device"},{"name":"FramerAppleIPhoneXR","type":"device"},{"name":"FramerAppleIPhoneXSMax","type":"device"},{"name":"FramerGooglePixel2","type":"device"},{"name":"FramerGooglePixel2XL","type":"device"},{"name":"FramerGooglePixel3","type":"device"},{"name":"FramerGooglePixel3XL","type":"device"},{"name":"FramerSamsungNote5","type":"device"},{"name":"FramerSamsungGalaxyS9","type":"device"},{"name":"FramerAppleIPadAir","type":"device"},{"name":"FramerAppleIPadMini","type":"device"},{"name":"FramerAppleIPadPro","type":"device"},{"name":"FramerGoogleNexusTablet","type":"device"},{"name":"FramerMicrosoftSurfacePro3","type":"device"},{"name":"FramerMicrosoftSurfacePro4","type":"device"},{"name":"FramerAppleIMac","type":"device"},{"name":"FramerAppleThunderboltDisplay","type":"device"},{"name":"FramerAppleMacBook","type":"device"},{"name":"FramerAppleMacBookAir","type":"device"},{"name":"FramerAppleMacBookPro","type":"device"},{"name":"FramerDellXPS","type":"device"},{"name":"FramerMicrosoftSurfaceBook","type":"device"},{"name":"FramerSonyW850C","type":"device"},{"name":"FramerStoreArtwork","type":"device"},{"name":"FramerStoreIcon","type":"device"}]}}
+                    package.__framer__.packageJson.design = designJson
+                    return package
+                }
+
+package.dependencies = packages
+
+exports.__framer__ = package
+
+
+/***/ }),
+
+/***/ "./package.json":
+/*!**********************!*\
+  !*** ./package.json ***!
+  \**********************/
+/*! exports provided: main, license, devDependencies, peerDependencies, framer, author, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"main\":\"dist/index.js\",\"license\":\"MIT\",\"devDependencies\":{\"@types/react\":\"^16.8\"},\"peerDependencies\":{\"framer\":\"^1.0\",\"react\":\"^16.8\"},\"framer\":{\"id\":\"8302fbe1-214b-453c-b43b-83a040f24ee3\"},\"author\":\"Gummy Bear\"}");
+
+/***/ }),
+
+/***/ "framer":
+/*!******************************************************************************************!*\
+  !*** external {"root":"Framer","commonjs2":"framer","commonjs":"framer","amd":"framer"} ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_framer__;
+
+/***/ })
+
+/******/ });
+});
+
+        </script>
+        
+        <script>
+        const data = {
+  "presentationNode": {
+    "componentClass": "Frame",
+    "props": {
+      "key": "qWfa5BCW2",
+      "id": "id_qWfa5BCW2",
+      "willChangeTransform": false,
+      "_constraints": {
+        "enabled": true
+      },
+      "width": 830,
+      "height": 554,
+      "left": 0,
+      "top": 0,
+      "_border": {},
+      "visible": true,
+      "style": {
+        "rotate": 0,
+        "overflow": "hidden",
+        "backgroundColor": "white"
+      },
+      "background": {
+        "r": 255,
+        "g": 255,
+        "b": 255,
+        "a": 1,
+        "h": 0,
+        "s": 0,
+        "l": 1,
+        "initialValue": "white",
+        "roundA": 1,
+        "format": "rgb"
+      }
+    },
+    "children": [
+      {
+        "componentClass": "Text",
+        "props": {
+          "key": "DkOCJJ0R6",
+          "id": "id_DkOCJJ0R6",
+          "willChangeTransform": false,
+          "_constraints": {
+            "enabled": true,
+            "autoSize": true
+          },
+          "width": 101,
+          "height": 19,
+          "left": 64,
+          "top": 43,
+          "rawHTML": "<div data-offset-key=\"5hb7s-0-0\" class=\"public-DraftStyleDefault-block public-DraftStyleDefault-ltr\"><span data-offset-key=\"5hb7s-0-0\" style=\"tab-size:4;font-family:&quot;.SFNSText&quot;, &quot;SFProText-Regular&quot;, &quot;SFUIText-Regular&quot;, &quot;.SFUIText&quot;, sans-serif;-webkit-text-fill-color:rgb(0, 0, 0);font-size:16px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">Delta System</span></span></div>",
+          "fonts": [
+            "__SF-UI-Text-Regular__"
+          ],
+          "opacity": 1,
+          "rotation": 0,
+          "visible": true,
+          "autoSize": true,
+          "calculatedSize": {
+            "width": 101,
+            "height": 19
+          },
+          "isEditable": false
+        }
+      },
+      {
+        "componentClass": "Frame",
+        "props": {
+          "key": "ulkSQCY84",
+          "id": "id_ulkSQCY84",
+          "willChangeTransform": false,
+          "_constraints": {
+            "enabled": true
+          },
+          "width": 110,
+          "height": 47,
+          "left": 87,
+          "top": 88,
+          "_border": {},
+          "visible": true,
+          "style": {
+            "rotate": 0,
+            "overflow": "visible",
+            "backgroundColor": "rgba(0, 153, 255, 0.5)",
+            "borderRadius": "17px"
+          },
+          "background": {
+            "r": 0,
+            "g": 153,
+            "b": 255,
+            "a": 0.5,
+            "h": 204,
+            "s": 1,
+            "l": 0.5,
+            "initialValue": "rgba(0, 153, 255, 0.5)",
+            "roundA": 0.5,
+            "format": "rgb"
+          }
+        },
+        "children": [
+          {
+            "componentClass": "Text",
+            "props": {
+              "key": "Bdp_qp5D0",
+              "id": "id_Bdp_qp5D0",
+              "willChangeTransform": false,
+              "_constraints": {
+                "enabled": true,
+                "autoSize": true
+              },
+              "width": 79,
+              "height": 19,
+              "left": "49.358974358974365%",
+              "top": "48.61111111111111%",
+              "center": true,
+              "rawHTML": "<div data-offset-key=\"3270u-0-0\" class=\"public-DraftStyleDefault-block public-DraftStyleDefault-ltr\"><span data-offset-key=\"3270u-0-0\" style=\"tab-size:4;font-family:&quot;.SFNSText&quot;, &quot;SFProText-Regular&quot;, &quot;SFUIText-Regular&quot;, &quot;.SFUIText&quot;, sans-serif;-webkit-text-fill-color:rgb(0, 0, 0);font-size:16px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">Dropdown</span></span></div>",
+              "fonts": [
+                "__SF-UI-Text-Regular__"
+              ],
+              "opacity": 1,
+              "rotation": 0,
+              "visible": true,
+              "autoSize": true,
+              "calculatedSize": {
+                "width": 79,
+                "height": 19
+              },
+              "isEditable": false
+            }
+          }
+        ],
+        "actions": {}
+      },
+      {
+        "componentClass": "ComponentContainer",
+        "props": {
+          "key": "oVoxjVv7m",
+          "id": "id_oVoxjVv7m",
+          "willChangeTransform": false,
+          "_constraints": {
+            "enabled": true
+          },
+          "width": 386,
+          "height": 369,
+          "left": 29,
+          "bottom": 7,
+          "componentIdentifier": "framer/Stack",
+          "visible": true,
+          "style": {
+            "rotate": "0deg",
+            "opacity": 1,
+            "borderRadius": 0
+          }
+        },
+        "children": [
+          {
+            "componentClass": "framer/Stack",
+            "props": {
+              "width": 386,
+              "height": 369,
+              "background": null,
+              "_border": {},
+              "style": {
+                "overflow": "hidden"
+              },
+              "direction": "horizontal",
+              "distribution": "space-evenly",
+              "alignment": "center",
+              "gap": 10,
+              "padding": 0,
+              "paddingPerSide": false,
+              "paddingTop": 0,
+              "paddingRight": 0,
+              "paddingBottom": 0,
+              "paddingLeft": 0,
+              "__fromCodeComponentNode": true,
+              "placeholders": null,
+              "id": "oVoxjVv7mframer/Stack",
+              "key": "oVoxjVv7mframer/Stack"
+            },
+            "children": [
+              {
+                "componentClass": "Frame",
+                "props": {
+                  "key": "c6e3VogQ9",
+                  "id": "id_c6e3VogQ9",
+                  "willChangeTransform": false,
+                  "_constraints": {
+                    "enabled": true
+                  },
+                  "width": 110,
+                  "height": 257,
+                  "_border": {},
+                  "visible": true,
+                  "style": {
+                    "rotate": 0,
+                    "overflow": "visible",
+                    "backgroundColor": "rgba(0, 153, 255, 0.5)",
+                    "borderRadius": "94px"
+                  },
+                  "background": {
+                    "r": 0,
+                    "g": 153,
+                    "b": 255,
+                    "a": 0.5,
+                    "h": 204,
+                    "s": 1,
+                    "l": 0.5,
+                    "initialValue": "rgba(0, 153, 255, 0.5)",
+                    "roundA": 0.5,
+                    "format": "rgb"
+                  }
+                },
+                "children": [
+                  {
+                    "componentClass": "Text",
+                    "props": {
+                      "key": "AnWf4pdnn",
+                      "id": "id_AnWf4pdnn",
+                      "willChangeTransform": false,
+                      "_constraints": {
+                        "enabled": true,
+                        "autoSize": true
+                      },
+                      "width": 23,
+                      "height": 19,
+                      "left": 35,
+                      "top": 28,
+                      "rawHTML": "<div data-offset-key=\"f2sir-0-0\" class=\"public-DraftStyleDefault-block public-DraftStyleDefault-ltr\"><span data-offset-key=\"f2sir-0-0\" style=\"tab-size:4;font-family:&quot;.SFNSText&quot;, &quot;SFProText-Regular&quot;, &quot;SFUIText-Regular&quot;, &quot;.SFUIText&quot;, sans-serif;-webkit-text-fill-color:rgb(0, 0, 0);font-size:16px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">Git</span></span></div>",
+                      "fonts": [
+                        "__SF-UI-Text-Regular__"
+                      ],
+                      "opacity": 1,
+                      "rotation": 0,
+                      "visible": true,
+                      "autoSize": true,
+                      "calculatedSize": {
+                        "width": 23,
+                        "height": 19
+                      },
+                      "isEditable": false
+                    }
+                  },
+                  {
+                    "componentClass": "Text",
+                    "props": {
+                      "key": "mavKyfHCE",
+                      "id": "id_mavKyfHCE",
+                      "willChangeTransform": false,
+                      "_constraints": {
+                        "enabled": true,
+                        "autoSize": true
+                      },
+                      "width": 68,
+                      "height": 57,
+                      "left": 23,
+                      "top": 96,
+                      "contentState": {
+                        "entityMap": {},
+                        "blocks": [
+                          {
+                            "key": "vs53",
+                            "text": "List 100",
+                            "type": "unstyled",
+                            "depth": 0,
+                            "inlineStyleRanges": [
+                              {
+                                "offset": 0,
+                                "length": 8,
+                                "style": "FONT:__SF-UI-Text-Regular__"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 8,
+                                "style": "COLOR:rgb(0, 0, 0)"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 8,
+                                "style": "SIZE:16"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 8,
+                                "style": "LETTERSPACING:0"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 8,
+                                "style": "LINEHEIGHT:1.2"
+                              }
+                            ],
+                            "entityRanges": [],
+                            "data": {
+                              "emptyStyle": [
+                                "FONT:__SF-UI-Text-Regular__",
+                                "COLOR:rgb(0, 0, 0)",
+                                "SIZE:16",
+                                "LETTERSPACING:0",
+                                "LINEHEIGHT:1.2"
+                              ]
+                            }
+                          },
+                          {
+                            "key": "1uj7h",
+                            "text": "recent ",
+                            "type": "unstyled",
+                            "depth": 0,
+                            "inlineStyleRanges": [
+                              {
+                                "offset": 0,
+                                "length": 7,
+                                "style": "FONT:__SF-UI-Text-Regular__"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 7,
+                                "style": "COLOR:rgb(0, 0, 0)"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 7,
+                                "style": "SIZE:16"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 7,
+                                "style": "LETTERSPACING:0"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 7,
+                                "style": "LINEHEIGHT:1.2"
+                              }
+                            ],
+                            "entityRanges": [],
+                            "data": {
+                              "emptyStyle": [
+                                "FONT:__SF-UI-Text-Regular__",
+                                "COLOR:rgb(0, 0, 0)",
+                                "SIZE:16",
+                                "LETTERSPACING:0",
+                                "LINEHEIGHT:1.2"
+                              ]
+                            }
+                          },
+                          {
+                            "key": "6ahve",
+                            "text": "Commits",
+                            "type": "unstyled",
+                            "depth": 0,
+                            "inlineStyleRanges": [
+                              {
+                                "offset": 0,
+                                "length": 7,
+                                "style": "FONT:__SF-UI-Text-Regular__"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 7,
+                                "style": "COLOR:rgb(0, 0, 0)"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 7,
+                                "style": "SIZE:16"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 7,
+                                "style": "LETTERSPACING:0"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 7,
+                                "style": "LINEHEIGHT:1.2"
+                              }
+                            ],
+                            "entityRanges": [],
+                            "data": {
+                              "emptyStyle": [
+                                "FONT:__SF-UI-Text-Regular__",
+                                "COLOR:rgb(0, 0, 0)",
+                                "SIZE:16",
+                                "LETTERSPACING:0",
+                                "LINEHEIGHT:1.2"
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      "fonts": [
+                        "__SF-UI-Text-Regular__"
+                      ],
+                      "opacity": 1,
+                      "rotation": 0,
+                      "visible": true,
+                      "autoSize": true,
+                      "calculatedSize": {
+                        "width": 68,
+                        "height": 57
+                      },
+                      "isEditable": false
+                    }
+                  }
+                ],
+                "actions": {}
+              },
+              {
+                "componentClass": "Frame",
+                "props": {
+                  "key": "VQ9j4OF21",
+                  "id": "id_VQ9j4OF21",
+                  "willChangeTransform": false,
+                  "_constraints": {
+                    "enabled": true
+                  },
+                  "width": 295,
+                  "height": 243,
+                  "_border": {},
+                  "visible": true,
+                  "style": {
+                    "rotate": 0,
+                    "overflow": "visible",
+                    "backgroundColor": "rgba(0, 153, 255, 0.5)"
+                  },
+                  "background": {
+                    "r": 0,
+                    "g": 153,
+                    "b": 255,
+                    "a": 0.5,
+                    "h": 204,
+                    "s": 1,
+                    "l": 0.5,
+                    "initialValue": "rgba(0, 153, 255, 0.5)",
+                    "roundA": 0.5,
+                    "format": "rgb"
+                  }
+                },
+                "children": [
+                  {
+                    "componentClass": "Text",
+                    "props": {
+                      "key": "kl7LVHVkw",
+                      "id": "id_kl7LVHVkw",
+                      "willChangeTransform": false,
+                      "_constraints": {
+                        "enabled": true,
+                        "autoSize": true
+                      },
+                      "width": 78,
+                      "height": 19,
+                      "left": 45,
+                      "top": 21,
+                      "rawHTML": "<div data-offset-key=\"f4bao-0-0\" class=\"public-DraftStyleDefault-block public-DraftStyleDefault-ltr\"><span data-offset-key=\"f4bao-0-0\" style=\"tab-size:4;font-family:&quot;.SFNSText&quot;, &quot;SFProText-Regular&quot;, &quot;SFUIText-Regular&quot;, &quot;.SFUIText&quot;, sans-serif;-webkit-text-fill-color:rgb(0, 0, 0);font-size:16px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">Directions</span></span></div>",
+                      "fonts": [
+                        "__SF-UI-Text-Regular__"
+                      ],
+                      "opacity": 1,
+                      "rotation": 0,
+                      "visible": true,
+                      "autoSize": true,
+                      "calculatedSize": {
+                        "width": 78,
+                        "height": 19
+                      },
+                      "isEditable": false
+                    }
+                  },
+                  {
+                    "componentClass": "Frame",
+                    "props": {
+                      "key": "EKGwz1l37",
+                      "id": "id_EKGwz1l37",
+                      "willChangeTransform": false,
+                      "_constraints": {
+                        "enabled": true
+                      },
+                      "width": 117,
+                      "height": 151,
+                      "left": 26,
+                      "bottom": 29,
+                      "_border": {},
+                      "visible": true,
+                      "overflow": "hidden",
+                      "style": {},
+                      "background": null
+                    },
+                    "children": []
+                  },
+                  {
+                    "componentClass": "Frame",
+                    "props": {
+                      "key": "T4NAGt06h",
+                      "id": "id_T4NAGt06h",
+                      "willChangeTransform": false,
+                      "_constraints": {
+                        "enabled": true
+                      },
+                      "width": 224,
+                      "height": 156,
+                      "left": 26,
+                      "bottom": 20,
+                      "_border": {},
+                      "visible": true,
+                      "overflow": "hidden",
+                      "style": {},
+                      "background": null
+                    },
+                    "children": [
+                      {
+                        "componentClass": "Vector",
+                        "props": {
+                          "key": "id_cWw8YxycO",
+                          "id": "cWw8YxycO",
+                          "willChangeTransform": false,
+                          "isRootVectorNode": true,
+                          "calculatedPath": [
+                            {
+                              "pathSegments": [
+                                {
+                                  "x": 0,
+                                  "y": 110,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                },
+                                {
+                                  "x": 98,
+                                  "y": 0,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                }
+                              ],
+                              "pathClosed": false
+                            }
+                          ],
+                          "insideStroke": false,
+                          "shapeId": "id_cWw8YxycO",
+                          "strokeEnabled": true,
+                          "strokeClipId": "id_cWw8YxycO_clip",
+                          "strokeWidth": 1,
+                          "rect": {
+                            "x": 107,
+                            "y": 25,
+                            "width": 98,
+                            "height": 110
+                          },
+                          "frame": {
+                            "x": 107,
+                            "y": 25,
+                            "width": 98,
+                            "height": 110
+                          },
+                          "strokeAlpha": 1,
+                          "name": "Path",
+                          "rotation": 0,
+                          "lineCap": "butt",
+                          "lineJoin": "miter",
+                          "strokeColor": "#AAA",
+                          "strokeDashArray": "0",
+                          "strokeDashOffset": 0,
+                          "strokeMiterLimit": 4,
+                          "fill": null
+                        }
+                      },
+                      {
+                        "componentClass": "Vector",
+                        "props": {
+                          "key": "id_TRp9GGo5q",
+                          "id": "TRp9GGo5q",
+                          "willChangeTransform": false,
+                          "isRootVectorNode": true,
+                          "calculatedPath": [
+                            {
+                              "pathSegments": [
+                                {
+                                  "x": 5,
+                                  "y": 106,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                },
+                                {
+                                  "x": 0,
+                                  "y": 0,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                }
+                              ],
+                              "pathClosed": false
+                            }
+                          ],
+                          "insideStroke": false,
+                          "shapeId": "id_TRp9GGo5q",
+                          "strokeEnabled": true,
+                          "strokeClipId": "id_TRp9GGo5q_clip",
+                          "strokeWidth": 1,
+                          "rect": {
+                            "x": 102,
+                            "y": 16,
+                            "width": 5,
+                            "height": 106
+                          },
+                          "frame": {
+                            "x": 102,
+                            "y": 16,
+                            "width": 5,
+                            "height": 106
+                          },
+                          "strokeAlpha": 1,
+                          "name": "Path",
+                          "rotation": 0,
+                          "lineCap": "butt",
+                          "lineJoin": "miter",
+                          "strokeColor": "#AAA",
+                          "strokeDashArray": "0",
+                          "strokeDashOffset": 0,
+                          "strokeMiterLimit": 4,
+                          "fill": null
+                        }
+                      },
+                      {
+                        "componentClass": "Vector",
+                        "props": {
+                          "key": "id_oLVT6lSER",
+                          "id": "oLVT6lSER",
+                          "willChangeTransform": false,
+                          "isRootVectorNode": true,
+                          "calculatedPath": [
+                            {
+                              "pathSegments": [
+                                {
+                                  "x": 87,
+                                  "y": 105,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                },
+                                {
+                                  "x": 0,
+                                  "y": 0,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                }
+                              ],
+                              "pathClosed": false
+                            }
+                          ],
+                          "insideStroke": false,
+                          "shapeId": "id_oLVT6lSER",
+                          "strokeEnabled": true,
+                          "strokeClipId": "id_oLVT6lSER_clip",
+                          "strokeWidth": 1,
+                          "rect": {
+                            "x": 20,
+                            "y": 25,
+                            "width": 87,
+                            "height": 105
+                          },
+                          "frame": {
+                            "x": 20,
+                            "y": 25,
+                            "width": 87,
+                            "height": 105
+                          },
+                          "strokeAlpha": 1,
+                          "name": "Path",
+                          "rotation": 0,
+                          "lineCap": "butt",
+                          "lineJoin": "miter",
+                          "strokeColor": "#AAA",
+                          "strokeDashArray": "0",
+                          "strokeDashOffset": 0,
+                          "strokeMiterLimit": 4,
+                          "fill": null
+                        }
+                      },
+                      {
+                        "componentClass": "Vector",
+                        "props": {
+                          "key": "id_pWHsYboQ7",
+                          "id": "pWHsYboQ7",
+                          "willChangeTransform": false,
+                          "isRootVectorNode": true,
+                          "calculatedPath": [
+                            {
+                              "pathSegments": [
+                                {
+                                  "x": 0,
+                                  "y": 106,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                },
+                                {
+                                  "x": 44,
+                                  "y": 0,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                }
+                              ],
+                              "pathClosed": false
+                            }
+                          ],
+                          "insideStroke": false,
+                          "shapeId": "id_pWHsYboQ7",
+                          "strokeEnabled": true,
+                          "strokeClipId": "id_pWHsYboQ7_clip",
+                          "strokeWidth": 1,
+                          "rect": {
+                            "x": 107,
+                            "y": 16,
+                            "width": 44,
+                            "height": 106
+                          },
+                          "frame": {
+                            "x": 107,
+                            "y": 16,
+                            "width": 44,
+                            "height": 106
+                          },
+                          "strokeAlpha": 1,
+                          "name": "Path",
+                          "rotation": 0,
+                          "lineCap": "butt",
+                          "lineJoin": "miter",
+                          "strokeColor": "#AAA",
+                          "strokeDashArray": "0",
+                          "strokeDashOffset": 0,
+                          "strokeMiterLimit": 4,
+                          "fill": null
+                        }
+                      },
+                      {
+                        "componentClass": "Vector",
+                        "props": {
+                          "key": "id_lKMwGDAv2",
+                          "id": "lKMwGDAv2",
+                          "willChangeTransform": false,
+                          "isRootVectorNode": true,
+                          "calculatedPath": [
+                            {
+                              "pathSegments": [
+                                {
+                                  "x": 46,
+                                  "y": 110,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                },
+                                {
+                                  "x": 0,
+                                  "y": 0,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                }
+                              ],
+                              "pathClosed": false
+                            }
+                          ],
+                          "insideStroke": false,
+                          "shapeId": "id_lKMwGDAv2",
+                          "strokeEnabled": true,
+                          "strokeClipId": "id_lKMwGDAv2_clip",
+                          "strokeWidth": 1,
+                          "rect": {
+                            "x": 61,
+                            "y": 16,
+                            "width": 46,
+                            "height": 110
+                          },
+                          "frame": {
+                            "x": 61,
+                            "y": 16,
+                            "width": 46,
+                            "height": 110
+                          },
+                          "strokeAlpha": 1,
+                          "name": "Path",
+                          "rotation": 0,
+                          "lineCap": "butt",
+                          "lineJoin": "miter",
+                          "strokeColor": "#AAA",
+                          "strokeDashArray": "0",
+                          "strokeDashOffset": 0,
+                          "strokeMiterLimit": 4,
+                          "fill": null
+                        }
+                      },
+                      {
+                        "componentClass": "Vector",
+                        "props": {
+                          "key": "id_pw6tBba9k",
+                          "id": "pw6tBba9k",
+                          "willChangeTransform": false,
+                          "isRootVectorNode": true,
+                          "calculatedPath": [
+                            {
+                              "pathSegments": [
+                                {
+                                  "x": 6,
+                                  "y": 0,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                },
+                                {
+                                  "x": 0,
+                                  "y": 39,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                }
+                              ],
+                              "pathClosed": false
+                            }
+                          ],
+                          "insideStroke": false,
+                          "shapeId": "id_pw6tBba9k",
+                          "strokeEnabled": true,
+                          "strokeClipId": "id_pw6tBba9k_clip",
+                          "strokeWidth": 1,
+                          "rect": {
+                            "x": 199,
+                            "y": 25,
+                            "width": 6,
+                            "height": 39
+                          },
+                          "frame": {
+                            "x": 199,
+                            "y": 25,
+                            "width": 6,
+                            "height": 39
+                          },
+                          "strokeAlpha": 1,
+                          "name": "Path",
+                          "rotation": 0,
+                          "lineCap": "butt",
+                          "lineJoin": "miter",
+                          "strokeColor": "#AAA",
+                          "strokeDashArray": "0",
+                          "strokeDashOffset": 0,
+                          "strokeMiterLimit": 4,
+                          "fill": null
+                        }
+                      },
+                      {
+                        "componentClass": "Vector",
+                        "props": {
+                          "key": "id_YTpnRyFns",
+                          "id": "YTpnRyFns",
+                          "willChangeTransform": false,
+                          "isRootVectorNode": true,
+                          "calculatedPath": [
+                            {
+                              "pathSegments": [
+                                {
+                                  "x": 33,
+                                  "y": 0,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                },
+                                {
+                                  "x": 0,
+                                  "y": 7,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                }
+                              ],
+                              "pathClosed": false
+                            }
+                          ],
+                          "insideStroke": false,
+                          "shapeId": "id_YTpnRyFns",
+                          "strokeEnabled": true,
+                          "strokeClipId": "id_YTpnRyFns_clip",
+                          "strokeWidth": 1,
+                          "rect": {
+                            "x": 172,
+                            "y": 25,
+                            "width": 33,
+                            "height": 7
+                          },
+                          "frame": {
+                            "x": 172,
+                            "y": 25,
+                            "width": 33,
+                            "height": 7
+                          },
+                          "strokeAlpha": 1,
+                          "name": "Path",
+                          "rotation": 0,
+                          "lineCap": "butt",
+                          "lineJoin": "miter",
+                          "strokeColor": "#AAA",
+                          "strokeDashArray": "0",
+                          "strokeDashOffset": 0,
+                          "strokeMiterLimit": 4,
+                          "fill": null
+                        }
+                      },
+                      {
+                        "componentClass": "Vector",
+                        "props": {
+                          "key": "id_xSCW7Ew1F",
+                          "id": "xSCW7Ew1F",
+                          "willChangeTransform": false,
+                          "isRootVectorNode": true,
+                          "calculatedPath": [
+                            {
+                              "pathSegments": [
+                                {
+                                  "x": 0,
+                                  "y": 0,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                },
+                                {
+                                  "x": 5,
+                                  "y": 24,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                }
+                              ],
+                              "pathClosed": false
+                            }
+                          ],
+                          "insideStroke": false,
+                          "shapeId": "id_xSCW7Ew1F",
+                          "strokeEnabled": true,
+                          "strokeClipId": "id_xSCW7Ew1F_clip",
+                          "strokeWidth": 1,
+                          "rect": {
+                            "x": 151,
+                            "y": 21,
+                            "width": 5,
+                            "height": 24
+                          },
+                          "frame": {
+                            "x": 151,
+                            "y": 21,
+                            "width": 5,
+                            "height": 24
+                          },
+                          "strokeAlpha": 1,
+                          "name": "Path",
+                          "rotation": 0,
+                          "lineCap": "butt",
+                          "lineJoin": "miter",
+                          "strokeColor": "#AAA",
+                          "strokeDashArray": "0",
+                          "strokeDashOffset": 0,
+                          "strokeMiterLimit": 4,
+                          "fill": null
+                        }
+                      },
+                      {
+                        "componentClass": "Vector",
+                        "props": {
+                          "key": "id_fbOqX8PvF",
+                          "id": "fbOqX8PvF",
+                          "willChangeTransform": false,
+                          "isRootVectorNode": true,
+                          "calculatedPath": [
+                            {
+                              "pathSegments": [
+                                {
+                                  "x": 28,
+                                  "y": 0,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                },
+                                {
+                                  "x": 0,
+                                  "y": 9,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                }
+                              ],
+                              "pathClosed": false
+                            }
+                          ],
+                          "insideStroke": false,
+                          "shapeId": "id_fbOqX8PvF",
+                          "strokeEnabled": true,
+                          "strokeClipId": "id_fbOqX8PvF_clip",
+                          "strokeWidth": 1,
+                          "rect": {
+                            "x": 128,
+                            "y": 16,
+                            "width": 28,
+                            "height": 9
+                          },
+                          "frame": {
+                            "x": 128,
+                            "y": 16,
+                            "width": 28,
+                            "height": 9
+                          },
+                          "strokeAlpha": 1,
+                          "name": "Path",
+                          "rotation": 0,
+                          "lineCap": "butt",
+                          "lineJoin": "miter",
+                          "strokeColor": "#AAA",
+                          "strokeDashArray": "0",
+                          "strokeDashOffset": 0,
+                          "strokeMiterLimit": 4,
+                          "fill": null
+                        }
+                      },
+                      {
+                        "componentClass": "Vector",
+                        "props": {
+                          "key": "id_fu1iGkYbz",
+                          "id": "fu1iGkYbz",
+                          "willChangeTransform": false,
+                          "isRootVectorNode": true,
+                          "calculatedPath": [
+                            {
+                              "pathSegments": [
+                                {
+                                  "x": 0,
+                                  "y": 0,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                },
+                                {
+                                  "x": 16,
+                                  "y": 24,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                }
+                              ],
+                              "pathClosed": false
+                            }
+                          ],
+                          "insideStroke": false,
+                          "shapeId": "id_fu1iGkYbz",
+                          "strokeEnabled": true,
+                          "strokeClipId": "id_fu1iGkYbz_clip",
+                          "strokeWidth": 1,
+                          "rect": {
+                            "x": 102,
+                            "y": 16,
+                            "width": 16,
+                            "height": 24
+                          },
+                          "frame": {
+                            "x": 102,
+                            "y": 16,
+                            "width": 16,
+                            "height": 24
+                          },
+                          "strokeAlpha": 1,
+                          "name": "Path",
+                          "rotation": 0,
+                          "lineCap": "butt",
+                          "lineJoin": "miter",
+                          "strokeColor": "#AAA",
+                          "strokeDashArray": "0",
+                          "strokeDashOffset": 0,
+                          "strokeMiterLimit": 4,
+                          "fill": null
+                        }
+                      },
+                      {
+                        "componentClass": "Vector",
+                        "props": {
+                          "key": "id_bm3yMyCNd",
+                          "id": "bm3yMyCNd",
+                          "willChangeTransform": false,
+                          "isRootVectorNode": true,
+                          "calculatedPath": [
+                            {
+                              "pathSegments": [
+                                {
+                                  "x": 12,
+                                  "y": 0,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                },
+                                {
+                                  "x": 0,
+                                  "y": 16,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                }
+                              ],
+                              "pathClosed": false
+                            }
+                          ],
+                          "insideStroke": false,
+                          "shapeId": "id_bm3yMyCNd",
+                          "strokeEnabled": true,
+                          "strokeClipId": "id_bm3yMyCNd_clip",
+                          "strokeWidth": 1,
+                          "rect": {
+                            "x": 90,
+                            "y": 16,
+                            "width": 12,
+                            "height": 16
+                          },
+                          "frame": {
+                            "x": 90,
+                            "y": 16,
+                            "width": 12,
+                            "height": 16
+                          },
+                          "strokeAlpha": 1,
+                          "name": "Path",
+                          "rotation": 0,
+                          "lineCap": "butt",
+                          "lineJoin": "miter",
+                          "strokeColor": "#AAA",
+                          "strokeDashArray": "0",
+                          "strokeDashOffset": 0,
+                          "strokeMiterLimit": 4,
+                          "fill": null
+                        }
+                      },
+                      {
+                        "componentClass": "Vector",
+                        "props": {
+                          "key": "id_hVmgBQM5y",
+                          "id": "hVmgBQM5y",
+                          "willChangeTransform": false,
+                          "isRootVectorNode": true,
+                          "calculatedPath": [
+                            {
+                              "pathSegments": [
+                                {
+                                  "x": 0,
+                                  "y": 0,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                },
+                                {
+                                  "x": 29,
+                                  "y": 16,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                }
+                              ],
+                              "pathClosed": false
+                            }
+                          ],
+                          "insideStroke": false,
+                          "shapeId": "id_hVmgBQM5y",
+                          "strokeEnabled": true,
+                          "strokeClipId": "id_hVmgBQM5y_clip",
+                          "strokeWidth": 1,
+                          "rect": {
+                            "x": 61,
+                            "y": 16,
+                            "width": 29,
+                            "height": 16
+                          },
+                          "frame": {
+                            "x": 61,
+                            "y": 16,
+                            "width": 29,
+                            "height": 16
+                          },
+                          "strokeAlpha": 1,
+                          "name": "Path",
+                          "rotation": 0,
+                          "lineCap": "butt",
+                          "lineJoin": "miter",
+                          "strokeColor": "#AAA",
+                          "strokeDashArray": "0",
+                          "strokeDashOffset": 0,
+                          "strokeMiterLimit": 4,
+                          "fill": null
+                        }
+                      },
+                      {
+                        "componentClass": "Vector",
+                        "props": {
+                          "key": "id_IMoh5vUb8",
+                          "id": "IMoh5vUb8",
+                          "willChangeTransform": false,
+                          "isRootVectorNode": true,
+                          "calculatedPath": [
+                            {
+                              "pathSegments": [
+                                {
+                                  "x": 0,
+                                  "y": 0,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                },
+                                {
+                                  "x": 0,
+                                  "y": 19,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                }
+                              ],
+                              "pathClosed": false
+                            }
+                          ],
+                          "insideStroke": false,
+                          "shapeId": "id_IMoh5vUb8",
+                          "strokeEnabled": true,
+                          "strokeClipId": "id_IMoh5vUb8_clip",
+                          "strokeWidth": 1,
+                          "rect": {
+                            "x": 61,
+                            "y": 21,
+                            "width": 1,
+                            "height": 19
+                          },
+                          "frame": {
+                            "x": 61,
+                            "y": 21,
+                            "width": 1,
+                            "height": 19
+                          },
+                          "strokeAlpha": 1,
+                          "name": "Path",
+                          "rotation": 0,
+                          "lineCap": "butt",
+                          "lineJoin": "miter",
+                          "strokeColor": "#AAA",
+                          "strokeDashArray": "0",
+                          "strokeDashOffset": 0,
+                          "strokeMiterLimit": 4,
+                          "fill": null
+                        }
+                      },
+                      {
+                        "componentClass": "Vector",
+                        "props": {
+                          "key": "id_bsg3DUNfJ",
+                          "id": "bsg3DUNfJ",
+                          "willChangeTransform": false,
+                          "isRootVectorNode": true,
+                          "calculatedPath": [
+                            {
+                              "pathSegments": [
+                                {
+                                  "x": 0,
+                                  "y": 0,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                },
+                                {
+                                  "x": 0,
+                                  "y": 28,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                }
+                              ],
+                              "pathClosed": false
+                            }
+                          ],
+                          "insideStroke": false,
+                          "shapeId": "id_bsg3DUNfJ",
+                          "strokeEnabled": true,
+                          "strokeClipId": "id_bsg3DUNfJ_clip",
+                          "strokeWidth": 1,
+                          "rect": {
+                            "x": 20,
+                            "y": 25,
+                            "width": 1,
+                            "height": 28
+                          },
+                          "frame": {
+                            "x": 20,
+                            "y": 25,
+                            "width": 1,
+                            "height": 28
+                          },
+                          "strokeAlpha": 1,
+                          "name": "Path",
+                          "rotation": 0,
+                          "lineCap": "butt",
+                          "lineJoin": "miter",
+                          "strokeColor": "#AAA",
+                          "strokeDashArray": "0",
+                          "strokeDashOffset": 0,
+                          "strokeMiterLimit": 4,
+                          "fill": null
+                        }
+                      },
+                      {
+                        "componentClass": "Vector",
+                        "props": {
+                          "key": "id_p42UWGyYd",
+                          "id": "p42UWGyYd",
+                          "willChangeTransform": false,
+                          "isRootVectorNode": true,
+                          "calculatedPath": [
+                            {
+                              "pathSegments": [
+                                {
+                                  "x": 0,
+                                  "y": 0,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                },
+                                {
+                                  "x": 26,
+                                  "y": 15,
+                                  "handleMirroring": "straight",
+                                  "handleOutX": 0,
+                                  "handleOutY": 0,
+                                  "handleInX": 0,
+                                  "handleInY": 0,
+                                  "radius": 0,
+                                  "__class": "PathSegment"
+                                }
+                              ],
+                              "pathClosed": false
+                            }
+                          ],
+                          "insideStroke": false,
+                          "shapeId": "id_p42UWGyYd",
+                          "strokeEnabled": true,
+                          "strokeClipId": "id_p42UWGyYd_clip",
+                          "strokeWidth": 1,
+                          "rect": {
+                            "x": 20,
+                            "y": 25,
+                            "width": 26,
+                            "height": 15
+                          },
+                          "frame": {
+                            "x": 20,
+                            "y": 25,
+                            "width": 26,
+                            "height": 15
+                          },
+                          "strokeAlpha": 1,
+                          "name": "Path",
+                          "rotation": 0,
+                          "lineCap": "butt",
+                          "lineJoin": "miter",
+                          "strokeColor": "#AAA",
+                          "strokeDashArray": "0",
+                          "strokeDashOffset": 0,
+                          "strokeMiterLimit": 4,
+                          "fill": null
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "componentClass": "Text",
+                    "props": {
+                      "key": "gryIAIsB2",
+                      "id": "id_gryIAIsB2",
+                      "willChangeTransform": false,
+                      "_constraints": {
+                        "enabled": true,
+                        "autoSize": true
+                      },
+                      "width": 251,
+                      "height": 38,
+                      "left": 36,
+                      "bottom": 86,
+                      "contentState": {
+                        "entityMap": {},
+                        "blocks": [
+                          {
+                            "key": "bjrpc",
+                            "text": "Select random SHAs of branches",
+                            "type": "unstyled",
+                            "depth": 0,
+                            "inlineStyleRanges": [
+                              {
+                                "offset": 0,
+                                "length": 30,
+                                "style": "FONT:__SF-UI-Text-Regular__"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 30,
+                                "style": "COLOR:rgb(0, 0, 0)"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 30,
+                                "style": "SIZE:16"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 30,
+                                "style": "LETTERSPACING:0"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 30,
+                                "style": "LINEHEIGHT:1.2"
+                              }
+                            ],
+                            "entityRanges": [],
+                            "data": {
+                              "emptyStyle": [
+                                "FONT:__SF-UI-Text-Regular__",
+                                "COLOR:rgb(0, 0, 0)",
+                                "SIZE:16",
+                                "LETTERSPACING:0",
+                                "LINEHEIGHT:1.2"
+                              ]
+                            }
+                          },
+                          {
+                            "key": "8rhsl",
+                            "text": "to check out next",
+                            "type": "unstyled",
+                            "depth": 0,
+                            "inlineStyleRanges": [
+                              {
+                                "offset": 0,
+                                "length": 17,
+                                "style": "FONT:__SF-UI-Text-Regular__"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 17,
+                                "style": "COLOR:rgb(0, 0, 0)"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 17,
+                                "style": "SIZE:16"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 17,
+                                "style": "LETTERSPACING:0"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 17,
+                                "style": "LINEHEIGHT:1.2"
+                              }
+                            ],
+                            "entityRanges": [],
+                            "data": {
+                              "emptyStyle": [
+                                "FONT:__SF-UI-Text-Regular__",
+                                "COLOR:rgb(0, 0, 0)",
+                                "SIZE:16",
+                                "LETTERSPACING:0",
+                                "LINEHEIGHT:1.2"
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      "fonts": [
+                        "__SF-UI-Text-Regular__"
+                      ],
+                      "opacity": 1,
+                      "rotation": 0,
+                      "visible": true,
+                      "autoSize": true,
+                      "calculatedSize": {
+                        "width": 251,
+                        "height": 38
+                      },
+                      "isEditable": false
+                    }
+                  }
+                ],
+                "actions": {}
+              }
+            ]
+          }
+        ],
+        "actions": {}
+      },
+      {
+        "componentClass": "Frame",
+        "props": {
+          "key": "jMZYhxmz6",
+          "id": "id_jMZYhxmz6",
+          "willChangeTransform": false,
+          "_constraints": {
+            "enabled": true
+          },
+          "width": 264,
+          "height": 41,
+          "right": 57,
+          "top": 88,
+          "_border": {},
+          "visible": true,
+          "style": {
+            "rotate": 0,
+            "overflow": "visible",
+            "backgroundColor": "rgba(0, 153, 255, 0.5)",
+            "borderRadius": "41px"
+          },
+          "background": {
+            "r": 0,
+            "g": 153,
+            "b": 255,
+            "a": 0.5,
+            "h": 204,
+            "s": 1,
+            "l": 0.5,
+            "initialValue": "rgba(0, 153, 255, 0.5)",
+            "roundA": 0.5,
+            "format": "rgb"
+          }
+        },
+        "children": [
+          {
+            "componentClass": "Text",
+            "props": {
+              "key": "aecrOnm_D",
+              "id": "id_aecrOnm_D",
+              "willChangeTransform": false,
+              "_constraints": {
+                "enabled": true,
+                "autoSize": true
+              },
+              "width": 117,
+              "height": 19,
+              "left": "49.81060606060606%",
+              "bottom": 9,
+              "center": "x",
+              "rawHTML": "<div data-offset-key=\"aae37-0-0\" class=\"public-DraftStyleDefault-block public-DraftStyleDefault-ltr\"><span data-offset-key=\"aae37-0-0\" style=\"tab-size:4;font-family:&quot;.SFNSText&quot;, &quot;SFProText-Regular&quot;, &quot;SFUIText-Regular&quot;, &quot;.SFUIText&quot;, sans-serif;-webkit-text-fill-color:rgb(0, 0, 0);font-size:16px;letter-spacing:0px;line-height:1.2\"><span data-text=\"true\">Pills Navigation</span></span></div>",
+              "fonts": [
+                "__SF-UI-Text-Regular__"
+              ],
+              "opacity": 1,
+              "rotation": 0,
+              "visible": true,
+              "autoSize": true,
+              "calculatedSize": {
+                "width": 117,
+                "height": 19
+              },
+              "isEditable": false
+            }
+          }
+        ],
+        "actions": {}
+      },
+      {
+        "componentClass": "ComponentContainer",
+        "props": {
+          "key": "lfJy4kv0s",
+          "id": "id_lfJy4kv0s",
+          "willChangeTransform": false,
+          "_constraints": {
+            "enabled": true
+          },
+          "width": 396,
+          "height": 243,
+          "right": 0,
+          "bottom": 70,
+          "componentIdentifier": "framer/Stack",
+          "visible": true,
+          "style": {
+            "rotate": "0deg",
+            "opacity": 1,
+            "borderRadius": 0
+          }
+        },
+        "children": [
+          {
+            "componentClass": "framer/Stack",
+            "props": {
+              "width": 396,
+              "height": 243,
+              "background": null,
+              "_border": {},
+              "style": {
+                "overflow": "hidden"
+              },
+              "direction": "horizontal",
+              "distribution": "space-evenly",
+              "alignment": "center",
+              "gap": 10,
+              "padding": 0,
+              "paddingPerSide": false,
+              "paddingTop": 0,
+              "paddingRight": 0,
+              "paddingBottom": 0,
+              "paddingLeft": 0,
+              "__fromCodeComponentNode": true,
+              "placeholders": null,
+              "id": "lfJy4kv0sframer/Stack",
+              "key": "lfJy4kv0sframer/Stack"
+            },
+            "children": [
+              {
+                "componentClass": "Frame",
+                "props": {
+                  "key": "eP6kdF_Q6",
+                  "id": "id_eP6kdF_Q6",
+                  "willChangeTransform": false,
+                  "_constraints": {
+                    "enabled": true
+                  },
+                  "width": 199,
+                  "height": 78,
+                  "_border": {},
+                  "visible": true,
+                  "style": {
+                    "rotate": 0,
+                    "overflow": "visible",
+                    "backgroundColor": "rgba(0, 153, 255, 0.5)"
+                  },
+                  "background": {
+                    "r": 0,
+                    "g": 153,
+                    "b": 255,
+                    "a": 0.5,
+                    "h": 204,
+                    "s": 1,
+                    "l": 0.5,
+                    "initialValue": "rgba(0, 153, 255, 0.5)",
+                    "roundA": 0.5,
+                    "format": "rgb"
+                  }
+                },
+                "children": [
+                  {
+                    "componentClass": "Text",
+                    "props": {
+                      "key": "UhTI70jIt",
+                      "id": "id_UhTI70jIt",
+                      "willChangeTransform": false,
+                      "_constraints": {
+                        "enabled": true,
+                        "autoSize": true
+                      },
+                      "width": 125,
+                      "height": 38,
+                      "left": 23,
+                      "top": 27,
+                      "contentState": {
+                        "entityMap": {},
+                        "blocks": [
+                          {
+                            "key": "5fmtl",
+                            "text": "Employee Graph",
+                            "type": "unstyled",
+                            "depth": 0,
+                            "inlineStyleRanges": [
+                              {
+                                "offset": 0,
+                                "length": 14,
+                                "style": "FONT:__SF-UI-Text-Regular__"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 14,
+                                "style": "COLOR:rgb(0, 0, 0)"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 14,
+                                "style": "SIZE:16"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 14,
+                                "style": "LETTERSPACING:0"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 14,
+                                "style": "LINEHEIGHT:1.2"
+                              }
+                            ],
+                            "entityRanges": [],
+                            "data": {
+                              "emptyStyle": [
+                                "FONT:__SF-UI-Text-Regular__",
+                                "COLOR:rgb(0, 0, 0)",
+                                "SIZE:16",
+                                "LETTERSPACING:0",
+                                "LINEHEIGHT:1.2"
+                              ]
+                            }
+                          },
+                          {
+                            "key": "5tmo7",
+                            "text": "(GraphViz)",
+                            "type": "unstyled",
+                            "depth": 0,
+                            "inlineStyleRanges": [
+                              {
+                                "offset": 0,
+                                "length": 10,
+                                "style": "FONT:__SF-UI-Text-Regular__"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 10,
+                                "style": "COLOR:rgb(0, 0, 0)"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 10,
+                                "style": "SIZE:16"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 10,
+                                "style": "LETTERSPACING:0"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 10,
+                                "style": "LINEHEIGHT:1.2"
+                              }
+                            ],
+                            "entityRanges": [],
+                            "data": {
+                              "emptyStyle": [
+                                "FONT:__SF-UI-Text-Regular__",
+                                "COLOR:rgb(0, 0, 0)",
+                                "SIZE:16",
+                                "LETTERSPACING:0",
+                                "LINEHEIGHT:1.2"
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      "fonts": [
+                        "__SF-UI-Text-Regular__"
+                      ],
+                      "opacity": 1,
+                      "rotation": 0,
+                      "visible": true,
+                      "autoSize": true,
+                      "calculatedSize": {
+                        "width": 125,
+                        "height": 38
+                      },
+                      "isEditable": false
+                    }
+                  }
+                ],
+                "actions": {}
+              },
+              {
+                "componentClass": "Frame",
+                "props": {
+                  "key": "ka8iGRIIb",
+                  "id": "id_ka8iGRIIb",
+                  "willChangeTransform": false,
+                  "_constraints": {
+                    "enabled": true
+                  },
+                  "width": 183,
+                  "height": 147,
+                  "_border": {},
+                  "visible": true,
+                  "style": {
+                    "rotate": 0,
+                    "overflow": "visible",
+                    "backgroundColor": "rgba(0, 153, 255, 0.5)"
+                  },
+                  "background": {
+                    "r": 0,
+                    "g": 153,
+                    "b": 255,
+                    "a": 0.5,
+                    "h": 204,
+                    "s": 1,
+                    "l": 0.5,
+                    "initialValue": "rgba(0, 153, 255, 0.5)",
+                    "roundA": 0.5,
+                    "format": "rgb"
+                  }
+                },
+                "children": [
+                  {
+                    "componentClass": "Text",
+                    "props": {
+                      "key": "wD3x5kshc",
+                      "id": "id_wD3x5kshc",
+                      "willChangeTransform": false,
+                      "_constraints": {
+                        "enabled": true,
+                        "autoSize": true
+                      },
+                      "width": 176,
+                      "height": 133,
+                      "left": 20,
+                      "top": 11,
+                      "contentState": {
+                        "entityMap": {},
+                        "blocks": [
+                          {
+                            "key": "4bsk8",
+                            "text": "Essay about the 3d",
+                            "type": "unstyled",
+                            "depth": 0,
+                            "inlineStyleRanges": [
+                              {
+                                "offset": 0,
+                                "length": 18,
+                                "style": "FONT:__SF-UI-Text-Regular__"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 18,
+                                "style": "COLOR:rgb(0, 0, 0)"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 18,
+                                "style": "SIZE:16"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 18,
+                                "style": "LETTERSPACING:0"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 18,
+                                "style": "LINEHEIGHT:1.2"
+                              }
+                            ],
+                            "entityRanges": [],
+                            "data": {
+                              "emptyStyle": [
+                                "FONT:__SF-UI-Text-Regular__",
+                                "COLOR:rgb(0, 0, 0)",
+                                "SIZE:16",
+                                "LETTERSPACING:0",
+                                "LINEHEIGHT:1.2"
+                              ]
+                            }
+                          },
+                          {
+                            "key": "bkn6",
+                            "text": "programming ",
+                            "type": "unstyled",
+                            "depth": 0,
+                            "inlineStyleRanges": [
+                              {
+                                "offset": 0,
+                                "length": 12,
+                                "style": "FONT:__SF-UI-Text-Regular__"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 12,
+                                "style": "COLOR:rgb(0, 0, 0)"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 12,
+                                "style": "SIZE:16"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 12,
+                                "style": "LETTERSPACING:0"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 12,
+                                "style": "LINEHEIGHT:1.2"
+                              }
+                            ],
+                            "entityRanges": [],
+                            "data": {
+                              "emptyStyle": [
+                                "FONT:__SF-UI-Text-Regular__",
+                                "COLOR:rgb(0, 0, 0)",
+                                "SIZE:16",
+                                "LETTERSPACING:0",
+                                "LINEHEIGHT:1.2"
+                              ]
+                            }
+                          },
+                          {
+                            "key": "tdtk",
+                            "text": "teamwork",
+                            "type": "unstyled",
+                            "depth": 0,
+                            "inlineStyleRanges": [
+                              {
+                                "offset": 0,
+                                "length": 8,
+                                "style": "FONT:__SF-UI-Text-Regular__"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 8,
+                                "style": "COLOR:rgb(0, 0, 0)"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 8,
+                                "style": "SIZE:16"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 8,
+                                "style": "LETTERSPACING:0"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 8,
+                                "style": "LINEHEIGHT:1.2"
+                              }
+                            ],
+                            "entityRanges": [],
+                            "data": {
+                              "emptyStyle": [
+                                "FONT:__SF-UI-Text-Regular__",
+                                "COLOR:rgb(0, 0, 0)",
+                                "SIZE:16",
+                                "LETTERSPACING:0",
+                                "LINEHEIGHT:1.2"
+                              ]
+                            }
+                          },
+                          {
+                            "key": "alet8",
+                            "text": "game (Medium embed)",
+                            "type": "unstyled",
+                            "depth": 0,
+                            "inlineStyleRanges": [
+                              {
+                                "offset": 0,
+                                "length": 19,
+                                "style": "FONT:__SF-UI-Text-Regular__"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 19,
+                                "style": "COLOR:rgb(0, 0, 0)"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 19,
+                                "style": "SIZE:16"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 19,
+                                "style": "LETTERSPACING:0"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 19,
+                                "style": "LINEHEIGHT:1.2"
+                              }
+                            ],
+                            "entityRanges": [],
+                            "data": {
+                              "emptyStyle": [
+                                "FONT:__SF-UI-Text-Regular__",
+                                "COLOR:rgb(0, 0, 0)",
+                                "SIZE:16",
+                                "LETTERSPACING:0",
+                                "LINEHEIGHT:1.2"
+                              ]
+                            }
+                          },
+                          {
+                            "key": "ats19",
+                            "text": "",
+                            "type": "unstyled",
+                            "depth": 0,
+                            "inlineStyleRanges": [],
+                            "entityRanges": [],
+                            "data": {
+                              "emptyStyle": [
+                                "FONT:__SF-UI-Text-Regular__",
+                                "COLOR:rgb(0, 0, 0)",
+                                "SIZE:16",
+                                "LETTERSPACING:0",
+                                "LINEHEIGHT:1.2"
+                              ]
+                            }
+                          },
+                          {
+                            "key": "3u8f7",
+                            "text": "eZii GAME_X",
+                            "type": "unstyled",
+                            "depth": 0,
+                            "inlineStyleRanges": [
+                              {
+                                "offset": 0,
+                                "length": 11,
+                                "style": "FONT:__SF-UI-Text-Regular__"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 11,
+                                "style": "COLOR:rgb(0, 0, 0)"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 11,
+                                "style": "SIZE:16"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 11,
+                                "style": "LETTERSPACING:0"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 11,
+                                "style": "LINEHEIGHT:1.2"
+                              }
+                            ],
+                            "entityRanges": [],
+                            "data": {
+                              "emptyStyle": [
+                                "FONT:__SF-UI-Text-Regular__",
+                                "COLOR:rgb(0, 0, 0)",
+                                "SIZE:16",
+                                "LETTERSPACING:0",
+                                "LINEHEIGHT:1.2"
+                              ]
+                            }
+                          },
+                          {
+                            "key": "7vfl1",
+                            "text": ".zip development",
+                            "type": "unstyled",
+                            "depth": 0,
+                            "inlineStyleRanges": [
+                              {
+                                "offset": 0,
+                                "length": 16,
+                                "style": "FONT:__SF-UI-Text-Regular__"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 16,
+                                "style": "COLOR:rgb(0, 0, 0)"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 16,
+                                "style": "SIZE:16"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 16,
+                                "style": "LETTERSPACING:0"
+                              },
+                              {
+                                "offset": 0,
+                                "length": 16,
+                                "style": "LINEHEIGHT:1.2"
+                              }
+                            ],
+                            "entityRanges": [],
+                            "data": {
+                              "emptyStyle": [
+                                "FONT:__SF-UI-Text-Regular__",
+                                "COLOR:rgb(0, 0, 0)",
+                                "SIZE:16",
+                                "LETTERSPACING:0",
+                                "LINEHEIGHT:1.2"
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      "fonts": [
+                        "__SF-UI-Text-Regular__"
+                      ],
+                      "opacity": 1,
+                      "rotation": 0,
+                      "visible": true,
+                      "autoSize": true,
+                      "calculatedSize": {
+                        "width": 176,
+                        "height": 133
+                      },
+                      "isEditable": false
+                    }
+                  }
+                ],
+                "actions": {}
+              }
+            ]
+          }
+        ],
+        "actions": {}
+      }
+    ],
+    "actions": {}
+  },
+  "metadata": {
+    "name": "Frame",
+    "id": "qWfa5BCW2",
+    "width": 830,
+    "height": 554,
+    "selectionLock": false,
+    "settings": {
+      "zoom": -1,
+      "rotate": false,
+      "bezel": false,
+      "responsive": false,
+      "touch": false,
+      "__class": "PreviewSettings"
+    }
+  },
+  "navigation": {},
+  "customProperties": {}
+};
+        const $build_index_js = document.querySelector("#build_index_js")
+        const script = $build_index_js ? $build_index_js.textContent.trim() : ""
+        
+        // need react to have rendered, before we can do setPreviewData
+        setTimeout(async () => {
+            if (script.length > 0) {
+                setPreviewData({ "index.js": script }, data)
+            } else {
+                const [indexJs, vendorsJs] = await Promise.all([
+                    fetch("build/index.js").then((response) => response.text()),
+                    fetch("build/vendor.js").then((response) => response.text().catch(() => undefined))
+                ])
+        
+                setPreviewData({ "index.js": indexJs, "vendors.js" :vendorsJs  }, data)
+            }
+        }, 0)
+        </script>
+    </body>
+</html>
